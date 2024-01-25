@@ -23,6 +23,18 @@
     <string name="AdMob_Interstitial">ca-app-pub-3940256099942544/1033173712</string>
     <string name="AdMob_OpenApp">ca-app-pub-3940256099942544/3419835294</string>
     <string name="privacy">https://gsbusinessenvanto.blogspot.com/2022/05/gs-business.html</string>
+    <string name="rc_book_details">RC Book Details</string>
+    <string name="vehicle_info">Search Vehicle Owner</string>
+    <string name="rto_offices">RTO Offices</string>
+    <string name="question_bank">Questions</string>
+    <string name="rto_exam">Exam</string>
+    <string name="traffic_signs">Traffic Signs</string>
+    <string name="traffic_rules">Traffic Rules</string>
+    <string name="celebrity_vehicle_details">Celebrity Vehicle Details</string>
+    <string name="right_arrow">right arrow</string>
+    <string name="search">Search</string>
+    <string name="rto_office">RTO Office</string>
+    <string name="select_language">Select Language</string>
 
 
 </resources>

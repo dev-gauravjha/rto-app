@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -35,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView iv_rto_symbols;
     ImageView iv_rules_rto;
     private NativeAd mobNativeView;
+
+
+    CardView cardSearchOwner,cardRcBookDetail,cardRtoOffice,cardCelebVehicle;
+    LinearLayout ln_question_bank,ln_rto_exam,ln_traffic_signs,ln_traffic_rule;
+
 
     private void NativeBinding(NativeAd nativeAd, NativeAdView adView) {
         MediaView mediaView = adView.findViewById(R.id.ad_media);
@@ -121,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.onBackPressed();
             }
         });
+
         this.iv_owner_details = (ImageView) findViewById(R.id.iv_owner_details);
         this.iv_rc_details = (ImageView) findViewById(R.id.iv_rc_details);
         this.iv_rto_office = (ImageView) findViewById(R.id.iv_rto_office);
@@ -129,7 +137,21 @@ public class MainActivity extends AppCompatActivity {
         this.iv_rto_exam_preparation = (ImageView) findViewById(R.id.iv_rto_exam_preparation);
         this.iv_rto_exam = (ImageView) findViewById(R.id.iv_rto_exam);
         this.iv_rules_rto = (ImageView) findViewById(R.id.iv_rules_rto);
-        this.iv_owner_details.setOnClickListener(new View.OnClickListener() {
+
+        cardSearchOwner=findViewById(R.id.cardSearchOwner);
+        cardRcBookDetail=findViewById(R.id.cardRcBookDetail);
+        cardRtoOffice=findViewById(R.id.cardRtoOffice);
+        cardCelebVehicle=findViewById(R.id.cardCelebVehicle);
+
+        ln_question_bank=findViewById(R.id.ln_question_bank);
+        ln_rto_exam=findViewById(R.id.ln_rto_exam);
+        ln_traffic_signs=findViewById(R.id.ln_traffic_signs);
+        ln_traffic_rule=findViewById(R.id.ln_traffic_rule);
+
+
+
+
+        this.cardSearchOwner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AdsManager.getInstance().showInterstitialAd(MainActivity.this, new AdsManager.AdCloseListener() {
@@ -141,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        this.iv_rc_details.setOnClickListener(new View.OnClickListener() {
+        this.cardRcBookDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -153,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_rto_office.setOnClickListener(new View.OnClickListener() {
+        this.cardRtoOffice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -165,7 +187,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_rto_symbols.setOnClickListener(new View.OnClickListener() {
+        this.ln_traffic_signs
+                .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -177,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_rto_exam_preparation.setOnClickListener(new View.OnClickListener() {
+        this.ln_question_bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -191,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_rto_exam.setOnClickListener(new View.OnClickListener() {
+        this.ln_rto_exam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -205,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_celebrity_info.setOnClickListener(new View.OnClickListener() {
+        this.cardCelebVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -217,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        this.iv_rules_rto.setOnClickListener(new View.OnClickListener() {
+        this.ln_traffic_rule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

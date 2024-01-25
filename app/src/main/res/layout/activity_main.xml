@@ -1,131 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dfdfdf"
+    android:background="@color/md_background"
     android:fitsSystemWindows="true">
 
-
-
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:background="@color/purple_200"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="wrap_content"
+        app:elevation="@dimen/_5sdp">
+        <RelativeLayout
 
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:onClick="onClick"
-            android:padding="5dp"
-            android:src="@drawable/ic_back"
-            android:tint="@color/white"/>
+            android:layout_width="match_parent"
+            android:background="@color/md_primary"
+            android:layout_height="?attr/actionBarSize">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="RTO Vehicle Information"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick"
+                android:padding="5dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="RTO Vehicle Information"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
-        android:layout_margin="@dimen/_10sdp"
         android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/rl_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSearchOwner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="2dp"
+                app:contentPadding="@dimen/_14sdp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:rotation="180"
-                            android:layout_margin="5dp"
-                            android:layout_alignParentRight="true"
-                            android:background="@drawable/ic_back"/>
+                    android:gravity="center">
 
-                        <ImageView
-                            android:id="@+id/iv_owner_details"
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:adjustViewBounds="true"
-                            android:padding="15dp"
-                            android:src="@drawable/vehicle_information" />
-
-                    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/iv_owner_details"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/vehicle_information"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/vehicle_info"
+                        android:textColor="@color/md_primary_text"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                        app:layout_constraintStart_toEndOf="@+id/iv_owner_details"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Vehicle Info"
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                        android:background="@drawable/ic_back"
+                        android:contentDescription="@string/right_arrow"
+                        android:rotation="180"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#0ff"
+                        android:tintMode="multiply"
+                       />
 
-                <LinearLayout
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRcBookDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:contentPadding="@dimen/_14sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
+                    android:gravity="center">
+
                     <ImageView
                         android:id="@+id/iv_rc_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_book_info" />
-                    </RelativeLayout>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_book_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/rc_book_details"
+                        android:textColor="@color/md_primary_text"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                        app:layout_constraintStart_toEndOf="@+id/iv_rc_details"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="RC Book Details"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:background="@drawable/ic_back"
+                        android:contentDescription="@string/right_arrow"
+                        android:rotation="180"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRtoOffice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:contentPadding="@dimen/_14sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/iv_rto_office"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_rto_offices"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/rto_offices"
+                        android:textColor="@color/md_primary_text"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                        app:layout_constraintStart_toEndOf="@+id/iv_rto_office"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_back"
+                        android:contentDescription="@string/right_arrow"
+                        android:rotation="180"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
             <RelativeLayout
                 android:id="@+id/ads"
                 android:layout_width="match_parent"
@@ -133,7 +229,8 @@
                 android:background="#dfdfdf"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:minHeight="250dp">
+                android:minHeight="250dp"
+                android:visibility="gone">
 
                 <FrameLayout
                     android:id="@+id/mobadslayout"
@@ -146,228 +243,238 @@
 
 
             </RelativeLayout>
-            <LinearLayout
+
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:contentPadding="@dimen/_14sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
                     android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
-                    <ImageView
-                        android:id="@+id/iv_rto_office"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_rto_offices" />
-                    </RelativeLayout>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="RTO Offices"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
-                    <ImageView
-                        android:id="@+id/iv_rto_symbols"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_symbolic" />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="RTO Symbol"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
-                    <ImageView
-                        android:id="@+id/iv_rto_exam_preparation"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_exam_preparation" />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Exam Preparation"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
-                    <ImageView
-                        android:id="@+id/iv_rto_exam"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_rto_exams" />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
                         android:text="RTO Exam"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:textSize="18sp"
+                        android:textColor="@color/md_primary_text"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/md_divider"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
 
-            <LinearLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <LinearLayout
+                            android:id="@+id/ln_question_bank"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/iv_rto_exam_preparation"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:contentDescription="@string/question_bank"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_exam_preparation" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/mukta_medium"
+                                android:text="@string/question_bank"
+                                android:textColor="@color/md_primary_text"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ln_rto_exam"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/exit_bg"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/iv_rto_exam"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:contentDescription="@string/rto_exam"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_rto_exams" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/mukta_medium"
+                                android:text="@string/rto_exam"
+                                android:textColor="@color/md_primary_text"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:id="@+id/ln_traffic_signs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/exit_bg"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/iv_rto_symbols"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:contentDescription="@string/traffic_signs"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_symbolic" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/mukta_medium"
+                                android:text="@string/traffic_signs"
+                                android:textAlignment="center"
+                                android:textColor="@color/md_primary_text"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ln_traffic_rule"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/exit_bg"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/iv_rules_rto"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:contentDescription="@string/traffic_rules"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/ic_rules" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/mukta_medium"
+                                android:text="@string/traffic_rules"
+                                android:textAlignment="center"
+                                android:textColor="@color/md_primary_text"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardCelebVehicle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:contentPadding="@dimen/_14sdp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
+                    android:gravity="center">
+
                     <ImageView
                         android:id="@+id/iv_celebrity_info"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/celebrity" />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Celebrity Vehicle Details"
-                        android:textColor="@color/black" />
-                </LinearLayout>
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/celebrity_vehicle_details"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/celebrity"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/exit_bg"
-                    android:orientation="vertical">
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:rotation="180"
-                        android:layout_margin="5dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/ic_back"/>
-                    <ImageView
-                        android:id="@+id/iv_rules_rto"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:adjustViewBounds="true"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_rules" />
-                    </RelativeLayout>
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/celebrity_vehicle_details"
+                        android:textColor="@color/md_primary_text"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                        app:layout_constraintStart_toEndOf="@+id/iv_celebrity_info"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:text="Rules of RTO"
-                        android:textColor="@color/black" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:background="@drawable/ic_back"
+                        android:contentDescription="@string/right_arrow"
+                        android:rotation="180"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

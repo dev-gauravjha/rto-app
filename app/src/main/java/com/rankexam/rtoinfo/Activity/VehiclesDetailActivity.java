@@ -1,6 +1,7 @@
 package com.rankexam.rtoinfo.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,6 +59,9 @@ public class VehiclesDetailActivity extends AppCompatActivity {
         });
 
         this.vehicleDetailsResponse = (VehiclseDetailRespondModel) getIntent().getParcelableExtra("detail");
+
+        Log.d("DetailActivity", "response: "+vehicleDetailsResponse.getDetails().toString());
+
         this.txt_oname = (TextView) findViewById(R.id.oname);
         this.txt_regno = (TextView) findViewById(R.id.regno);
         this.txt_regdate = (TextView) findViewById(R.id.regdate);

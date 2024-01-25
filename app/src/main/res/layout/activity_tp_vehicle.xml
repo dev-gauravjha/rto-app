@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:background="@color/purple_200"
+        android:background="@color/md_primary"
         android:layout_height="?attr/actionBarSize">
 
         <ImageView

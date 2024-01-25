@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#dfdfdf"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/md_background"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:background="@color/purple_200"
+        android:background="@color/md_primary"
         android:layout_height="?attr/actionBarSize">
 
         <ImageView
@@ -22,7 +23,7 @@
             android:onClick="onClick"
             android:padding="5dp"
             android:src="@drawable/ic_back"
-            android:tint="@color/white"/>
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Owner Name"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -78,8 +79,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
-                        android:text=""
-                        android:textColor="@color/gray"
+                        android:text="ROHIT M SHETTY"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -97,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Registration No."
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -107,7 +108,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -126,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Registration Date"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -136,7 +137,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -155,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Owner Serial No."
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -165,7 +166,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -183,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Insurance Company"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -193,7 +194,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -211,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Registration Authority"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -221,7 +222,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -239,7 +240,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Maker Model"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -249,7 +250,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -267,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Engine No"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -277,7 +278,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -295,7 +296,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Chassis No"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -305,7 +306,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -323,7 +324,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Fuel Type"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -333,7 +334,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -351,7 +352,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Vehicle Class"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -361,7 +362,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -379,7 +380,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Fuel Norms"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -389,7 +390,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -407,7 +408,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Vehicle Age"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -417,7 +418,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -435,7 +436,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Insurance Up to"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -445,7 +446,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -463,7 +464,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Fitness Up to"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -473,7 +474,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -491,7 +492,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Road Tax Paid Up to"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -501,7 +502,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -519,7 +520,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="PUCC Up to"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -529,7 +530,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -547,7 +548,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Color"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -557,7 +558,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -575,7 +576,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Seat Capacity"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -585,7 +586,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -603,7 +604,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Upload Weight (KG)"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -613,7 +614,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -631,7 +632,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Body Type"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -641,7 +642,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -659,7 +660,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="Manufacture Month/Year"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -669,7 +670,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
 
@@ -687,7 +688,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoslab_medium"
                         android:text="RC Status"
-                        android:textColor="#489b92"
+                        android:textColor="@color/md_secondary_text"
                         android:textSize="15dp" />
 
                     <TextView
@@ -697,7 +698,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/robotoslab_regular"
                         android:text=""
-                        android:textColor="@color/gray"
+                        android:textColor="@color/md_primary_text"
                         android:textSize="17dp" />
                 </LinearLayout>
             </LinearLayout>
