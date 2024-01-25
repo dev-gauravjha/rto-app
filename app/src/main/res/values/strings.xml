@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">RTO Vehicle Information</string>
+    <string name="bullet_ed_list_english">• Subject like rules and regulations of traffic and traffic signages are include in the test.\n• 15 questions are asked in the test at random out of which 9 questions are required to be answered correctly to pass the test.\n• 30 seconds are allowed to answer each question</string>
+    <string name="bullet_ed_list_gujarati">• ટ્રાફિક અને ટ્રાફિક સંકેતોના નિયમો અને નિયમો જેવા વિષયમાં ટેસ્ટમાં સમાવેશ કરવામાં આવ્યો છે.\n• પરીક્ષણમાં 15 પ્રશ્નોને રેન્ડમ કરવામાં પૂછવામાં આવે છે, જેમાંથી 9 પરીક્ષણોને પરીક્ષા પાસ કરવા માટે યોગ્ય રીતે જવાબ આપવા માટે જરૂરી છે.\n• 30 સેકંડ્સ દરેક પ્રશ્નનો જવાબ આપવા માટે માન્ય છે</string>
+    <string name="bullet_ed_list_hindi">• परीक्षण और यातायात संकेतों के नियमों और नियमों जैसे विषय शामिल हैं.\n• परीक्षा में 15 प्रश्नों को यादृच्छिक रूप से पूछा जाता है जिसमें से 9 प्रश्नों का परीक्षण करने के लिए सही उत्तर देने की आवश्यकता होती है.\n• 30 सेकंड में प्रत्येक प्रश्न का उत्तर देने की अनुमति है</string>
+
+
+    <string name="str_30_sec_over_txt_english">30 seconds is expired. To see new question press Next Question</string>
+    <string name="str_30_sec_over_txt_gujarati">30 સેકન્ડ પૂરી થઈ ગઈ છે. નવો પ્રશ્ન જોવા માટે આગામી પ્રશ્ન દબાવો.</string>
+    <string name="str_30_sec_over_txt_hindi">30 सेकंड समाप्त हो चुकी है। आगे का सवाल देखने के लिए आगे दबाए।</string>
+    <string name="str_exam_over_txt_english">15 Questions is Over. To see Result press next button</string>
+    <string name="str_exam_over_txt_gujarati">15 પ્રશ્નો સમાપ્ત થાય છે. પરિણામ જોવા માટે આગળ દબાવો</string>
+    <string name="str_exam_over_txt_hindi">15 सवाल खत्म हो चुके हो चुके है। परिणाम देखने के लिए आगे दबाएँ</string>
+    <string name="no_info">An error occurred while fetching registration details, please try again!</string>
+    <string name="select_country">Select a county</string>
+    <string name="loading">Loading…</string>
+
+    <string name="ONESIGNAL_APP_ID">31a87558-aebe-4660-898d-8c20cd10add4</string>
+
+    <string name="AdMob_AppId">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="AdMob_Banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="AdMob_Native">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="AdMob_Interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="AdMob_OpenApp">ca-app-pub-3940256099942544/3419835294</string>
+    <string name="privacy">https://gsbusinessenvanto.blogspot.com/2022/05/gs-business.html</string>
+
+
+</resources>
