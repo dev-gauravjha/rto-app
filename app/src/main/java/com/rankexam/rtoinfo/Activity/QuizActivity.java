@@ -112,11 +112,11 @@ public class QuizActivity extends AppCompatActivity {
         this.radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
         this.btnNext = (Button) findViewById(R.id.btnNext);
         if (this.str_language.equals("gujarati")) {
-            this.btnNext.setText("આગળ");
+            this.btnNext.setText("આગામી પ્રશ્ન");
         } else if (this.str_language.equals("hindi")) {
-            this.btnNext.setText("आगे");
+            this.btnNext.setText("अगला सवाल");
         } else if (this.str_language.equals("english")) {
-            this.btnNext.setText("Next");
+            this.btnNext.setText("Next Question");
         }
         this.myAnsList = new ArrayList<>();
         ArrayList<QueConstructor> allQuestions2 = new DBHandler(this).getAllQuestions2();
@@ -424,11 +424,11 @@ public class QuizActivity extends AppCompatActivity {
         this.answeredquestno = this.questionId + 1;
         StringBuilder sb = new StringBuilder();
         if (this.str_language.equals("gujarati")) {
-            this.btnNext.setText("આગળ");
+            this.btnNext.setText("આગામી પ્રશ્ન");
         } else if (this.str_language.equals("hindi")) {
-            this.btnNext.setText("आगे");
+            this.btnNext.setText("अगला सवाल");
         } else if (this.str_language.equals("english")) {
-            this.btnNext.setText("Next");
+            this.btnNext.setText("Next Question");
         }
         sb.append("");
         sb.append(this.f16k);

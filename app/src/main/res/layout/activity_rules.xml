@@ -4,7 +4,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dfdfdf"
+    android:background="@color/md_background"
     android:fitsSystemWindows="true">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_200">
+        android:background="@color/md_primary">
 
         <ImageView
             android:id="@+id/iv_back"

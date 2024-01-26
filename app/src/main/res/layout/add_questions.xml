@@ -37,7 +37,7 @@
                     android:fontFamily="@font/robotoslab_medium"
                     android:padding="5dp"
                     android:text="Question"
-                    android:textColor="#489b92"
+                    android:textColor="@color/md_primary"
                     android:textSize="18sp" />
 
                 <TextView
@@ -47,7 +47,7 @@
                     android:fontFamily="@font/robotoslab_regular"
                     android:padding="5dp"
                     android:text=""
-                    android:textColor="#151515"
+                    android:textColor="@color/md_primary_text"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -71,7 +71,7 @@
                     android:fontFamily="@font/robotoslab_medium"
                     android:padding="5dp"
                     android:text="Ans."
-                    android:textColor="#489b92"
+                    android:textColor="@color/md_primary"
                     android:textSize="18sp" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:fontFamily="@font/robotoslab_regular"
                     android:padding="5dp"
                     android:text=""
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/md_primary_text"
                     android:textSize="18sp" />
             </LinearLayout>
         </RelativeLayout>

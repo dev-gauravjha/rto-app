@@ -2,8 +2,8 @@
 <inset xmlns:android="http://schemas.android.com/apk/res/android" android:insetLeft="3dp" android:insetRight="3dp" android:insetTop="3dp" android:insetBottom="3dp">
     <shape android:shape="rectangle">
         <corners android:radius="10dp"/>
-        <solid android:color="#9fd4ce"/>
-        <padding android:left="2dp" android:top="3dp" android:right="2dp" android:bottom="3dp"/>
-        <stroke android:width="3dp" android:color="#489b92"/>
+        <solid android:color="@color/md_light_primary"/>
+        <padding android:left="8dp" android:top="3dp" android:right="8dp" android:bottom="3dp"/>
+        <stroke android:width="2dp" android:color="@color/md_primary"/>
     </shape>
 </inset>

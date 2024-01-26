@@ -77,7 +77,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         requestWindowFeature(1);
         getWindow().setFlags(1024, 1024);
         setContentView(R.layout.activity_splash_screen);
-        InterstitialLoad();
+
+
+//        InterstitialLoad();
 
 
 //        AudienceNetworkAds.initialize(this);
@@ -99,7 +101,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         OneSignal.setAppId(getResources().getString(R.string.ONESIGNAL_APP_ID));
         OneSignal.promptForPushNotifications();
 
-        AdsManager.getInstance().init(SplashScreenActivity.this);
+//        AdsManager.getInstance().init(SplashScreenActivity.this);
 
         new Handler().postDelayed(new Runnable() {
             public void run() {

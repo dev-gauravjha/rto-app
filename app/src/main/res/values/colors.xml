@@ -35,4 +35,11 @@
     <color name="md_background">#F8F9FA</color>
     <color name="md_surface">#FFFFFF</color>
     <color name="md_divider">#BDBDBD</color>
+    <color name="md_light_primary">#C5CAE9</color>
+    <color name="md_accent">#FF5252</color>
+
+    <color name="md_red_light">#FFC5C5</color>
+    <color name="md_green_light">#BAFFCE</color>
+
+
 </resources>

@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -53,7 +54,7 @@ import java.util.Arrays;
 
 public class StartActivity extends AppCompatActivity {
 
-    private static final String TAG = "123";
+    private static final String TAG = "StartActivity";
     ArrayList<FuelModel> FuelList;
     String cityId;
     String cityName;
@@ -98,27 +99,24 @@ public class StartActivity extends AppCompatActivity {
     public void NativeShow(final FrameLayout frameLayout) {
         AdLoader.Builder builder = new AdLoader.Builder(getApplication(), getString(R.string.AdMob_Native));
 
-        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-            @Override
-            public void onNativeAdLoaded(NativeAd nativeAd) {
+        builder.forNativeAd(nativeAd -> {
 
-                boolean isDestroyed = false;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    isDestroyed = isDestroyed();
-                }
-                if (isDestroyed || isFinishing() || isChangingConfigurations()) {
-                    nativeAd.destroy();
-                    return;
-                }
-                if (StartActivity.this.mobNativeView != null) {
-                    StartActivity.this.mobNativeView.destroy();
-                }
-                StartActivity.this.mobNativeView = nativeAd;
-                NativeAdView adView = (NativeAdView) getLayoutInflater().inflate(R.layout.mobnative, null);
-                NativeBinding(nativeAd, adView);
-                frameLayout.removeAllViews();
-                frameLayout.addView(adView);
+            boolean isDestroyed = false;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                isDestroyed = isDestroyed();
             }
+            if (isDestroyed || isFinishing() || isChangingConfigurations()) {
+                nativeAd.destroy();
+                return;
+            }
+            if (StartActivity.this.mobNativeView != null) {
+                StartActivity.this.mobNativeView.destroy();
+            }
+            StartActivity.this.mobNativeView = nativeAd;
+            NativeAdView adView = (NativeAdView) getLayoutInflater().inflate(R.layout.mobnative, null);
+            NativeBinding(nativeAd, adView);
+            frameLayout.removeAllViews();
+            frameLayout.addView(adView);
         });
         VideoOptions videoOptions = new VideoOptions.Builder().build();
         com.google.android.gms.ads.nativead.NativeAdOptions adOptions = new com.google.android.gms.ads.nativead.NativeAdOptions.Builder().setVideoOptions(videoOptions).build();
@@ -195,6 +193,8 @@ public class StartActivity extends AppCompatActivity {
         this.cityName = sharedPreferences.getString("cityName", "Kolkata");
         this.cityId = sharedPreferences.getString("cityId", "4");
         textView8.setText(this.cityName);
+
+
         new GetData().execute(new String[0]);
 
         textView9.setOnClickListener(new View.OnClickListener() {
@@ -214,15 +214,21 @@ public class StartActivity extends AppCompatActivity {
         }
 
 
+
         public String doInBackground(String[] strArr) {
+            String path="https://www.mypetrolprice.com/" + StartActivity.this.cityId + "/Fuel-prices-in-Kolkata";
+            Log.d(TAG, "endpoint: "+path);
             try {
                 Elements select = Jsoup.connect("https://www.mypetrolprice.com/" + StartActivity.this.cityId + "/Fuel-prices-in-Kolkata").get().select("div.OuterDiv");
                 int size = select.size();
                 for (int i = 0; i < size; i++) {
                     StartActivity.this.FuelList.add(new FuelModel(select.eq(i).select("div.UCFuelName").text(), select.eq(i).select("div.Italic").text(), select.eq(i).select("span.day").text(), select.eq(i).select("span.month").text(), select.eq(i).select("span.year").text(), select.eq(i).select("div.fnt27").text(), select.eq(i).select("div.fnt18").text(), select.eq(i).select("div.UCFuelName").text()));
+                    Log.d(TAG, "doInBackground: "+ FuelList.get(i).getFuelName());
                 }
+
                 return null;
             } catch (IOException unused) {
+                Log.e(TAG, "doInBackground: "+unused);
                 return null;
             }
         }
@@ -230,7 +236,7 @@ public class StartActivity extends AppCompatActivity {
 
         public void onPostExecute(String str) {
             super.onPostExecute(str);
-            fuelRec.setLayoutManager(new LinearLayoutManager(StartActivity.this, 0, false));
+            fuelRec.setLayoutManager(new LinearLayoutManager(StartActivity.this, RecyclerView.HORIZONTAL, false));
             RecyclerView recyclerView = fuelRec;
             StartActivity getStartActivity = StartActivity.this;
             recyclerView.setAdapter(new FuelAdapter(getStartActivity, getStartActivity.FuelList));

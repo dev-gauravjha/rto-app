@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardSearchOwner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,8 @@
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardElevation="2dp"
-                app:contentPadding="@dimen/_14sdp">
+                app:contentPadding="@dimen/_14sdp"
+                >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -101,20 +102,18 @@
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_back"
+                        android:background="@drawable/ic_right_arrow"
                         android:contentDescription="@string/right_arrow"
-                        android:rotation="180"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:tint="#0ff"
                         android:tintMode="multiply"
                        />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRcBookDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,7 +122,10 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:contentPadding="@dimen/_14sdp">
+                app:contentPadding="@dimen/_14sdp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:focusable="true">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -157,17 +159,16 @@
                         android:id="@+id/imageView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_back"
+                        android:background="@drawable/ic_right_arrow"
                         android:contentDescription="@string/right_arrow"
-                        android:rotation="180"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRtoOffice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,7 +177,10 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:contentPadding="@dimen/_14sdp">
+                app:contentPadding="@dimen/_14sdp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:focusable="true">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -210,15 +214,14 @@
                         android:id="@+id/imageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_back"
+                        android:background="@drawable/ic_right_arrow"
                         android:contentDescription="@string/right_arrow"
-                        android:rotation="180"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -245,7 +248,7 @@
             </RelativeLayout>
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentPadding="@dimen/_14sdp"
@@ -270,7 +273,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/md_divider"
-                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"/>
 
                     <LinearLayout
@@ -415,10 +418,10 @@
                     </LinearLayout>
                 </LinearLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardCelebVehicle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -427,7 +430,10 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:contentPadding="@dimen/_14sdp">
+                app:contentPadding="@dimen/_14sdp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:focusable="true">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -462,15 +468,14 @@
                         android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_back"
+                        android:background="@drawable/ic_right_arrow"
                         android:contentDescription="@string/right_arrow"
-                        android:rotation="180"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
 

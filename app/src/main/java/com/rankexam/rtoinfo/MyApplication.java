@@ -18,11 +18,11 @@ public class MyApplication extends Application  {
 
         FirebaseApp.initializeApp(this);
         AudienceNetworkAds.isInitialized(this);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
         Firebase.setAndroidContext(getApplicationContext());
         appOpenManager = new AppOpenAds(this);
 

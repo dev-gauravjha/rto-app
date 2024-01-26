@@ -50,7 +50,6 @@ public class AdsManager {
     }
 
     public void init(Activity activity) {
-
         MobileAds.initialize(
                 activity,
                 initializationStatus -> {

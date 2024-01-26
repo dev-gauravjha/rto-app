@@ -3,36 +3,35 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/tools"
-    android:background="#dfdfdf">
+    android:background="@color/md_background">
 
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:background="@color/purple_200"
+        android:background="@color/md_primary"
         android:layout_height="?attr/actionBarSize">
 
         <ImageView
             android:id="@+id/iv_back"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:onClick="onClick"
             android:padding="5dp"
             android:src="@drawable/ic_back"
-            android:tint="@color/white"/>
+            card_view:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/robotoslab_regular"
-            android:text="Exam"
+            android:text="@string/exam"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 
@@ -64,7 +63,7 @@
                 android:padding="5dp"
                 android:text=" સૂચનાઓ"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="#489b92"
+                android:textColor="@color/md_primary"
                 android:textStyle="bold" />
 
             <TextView
@@ -84,8 +83,8 @@
                 android:background="@drawable/emi_calc"
                 android:fontFamily="@font/robotoslab_regular"
                 android:text="પ્રારંભ પરીક્ષા"
-                android:textColor="#ffffff"
-                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
