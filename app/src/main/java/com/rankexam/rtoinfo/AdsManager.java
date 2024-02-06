@@ -53,15 +53,15 @@ public class AdsManager {
         MobileAds.initialize(
                 activity,
                 initializationStatus -> {
-                    Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
-                    for (String adapterClass : statusMap.keySet()) {
-                        AdapterStatus status = statusMap.get(adapterClass);
-                        Log.d("Ads", String.format(
-                                "Adapter name: %s, Description: %s, Latency: %d",
-                                adapterClass, status.getDescription(), status.getLatency()));
-                        AppLovinPrivacySettings.setHasUserConsent(true, activity);
-
-                    }
+//                    Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+//                    for (String adapterClass : statusMap.keySet()) {
+//                        AdapterStatus status = statusMap.get(adapterClass);
+//                        Log.d("Ads", String.format(
+//                                "Adapter name: %s, Description: %s, Latency: %d",
+//                                adapterClass, status.getDescription(), status.getLatency()));
+//                        AppLovinPrivacySettings.setHasUserConsent(true, activity);
+//
+//                    }
                 });
 
         AdSettings.setDataProcessingOptions(new String[]{});
@@ -75,9 +75,7 @@ public class AdsManager {
                 .buildInitSettings(activity)
                 .withInitListener(initResult -> Log.d(AudienceNetworkAds.TAG, initResult.getMessage()))
                 .initialize();
-
-        MobileAds.setRequestConfiguration(
-                new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("1ADAD30F02CD84CDE72190C2ABE5EB5E", "C56780CC4AB677273F4AC655F4E64995")).build());
+        
 
         loadInterstitialAd(activity);
     }

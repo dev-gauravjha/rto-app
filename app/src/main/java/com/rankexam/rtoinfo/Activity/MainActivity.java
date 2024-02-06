@@ -1,8 +1,12 @@
 package com.rankexam.rtoinfo.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -10,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -21,8 +30,18 @@ import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdView;
+import com.rankexam.rtoinfo.Adapter.FuelAdapter;
 import com.rankexam.rtoinfo.AdsManager;
+import com.rankexam.rtoinfo.Extra.BackgroundTask;
+import com.rankexam.rtoinfo.Extra.Constant;
+import com.rankexam.rtoinfo.Model.FuelModel;
 import com.rankexam.rtoinfo.R;
+
+import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
     CardView cardSearchOwner,cardRcBookDetail,cardRtoOffice,cardCelebVehicle;
     LinearLayout ln_question_bank,ln_rto_exam,ln_traffic_signs,ln_traffic_rule;
 
+    ArrayList<FuelModel> FuelList;
+    String cityId;
+    String cityName;
+    RecyclerView fuelRec;
+    TextView textView8, textView9;
+    ImageView iv_share,iv_setting;
 
     private void NativeBinding(NativeAd nativeAd, NativeAdView adView) {
         MediaView mediaView = adView.findViewById(R.id.ad_media);
@@ -122,12 +147,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
         NativeLoad();
-        ((ImageView) findViewById(R.id.iv_back)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.this.onBackPressed();
-            }
-        });
+
 
         this.iv_owner_details = (ImageView) findViewById(R.id.iv_owner_details);
         this.iv_rc_details = (ImageView) findViewById(R.id.iv_rc_details);
@@ -137,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
         this.iv_rto_exam_preparation = (ImageView) findViewById(R.id.iv_rto_exam_preparation);
         this.iv_rto_exam = (ImageView) findViewById(R.id.iv_rto_exam);
         this.iv_rules_rto = (ImageView) findViewById(R.id.iv_rules_rto);
+        iv_share= findViewById(R.id.iv_share);
+        iv_setting= findViewById(R.id.iv_user);
+
 
         cardSearchOwner=findViewById(R.id.cardSearchOwner);
         cardRcBookDetail=findViewById(R.id.cardRcBookDetail);
@@ -147,7 +170,35 @@ public class MainActivity extends AppCompatActivity {
         ln_rto_exam=findViewById(R.id.ln_rto_exam);
         ln_traffic_signs=findViewById(R.id.ln_traffic_signs);
         ln_traffic_rule=findViewById(R.id.ln_traffic_rule);
+        textView8 = findViewById(R.id.textView8);
+        textView9 = findViewById(R.id.textView9);
+        fuelRec = findViewById(R.id.fuel_rec);
 
+        this.FuelList = new ArrayList<>();
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.MY_PREFS_NAME, 0);
+        this.cityName = sharedPreferences.getString("cityName", "Kolkata");
+        this.cityId = sharedPreferences.getString("cityId", "4");
+        textView8.setText(this.cityName);
+
+
+        textView9.setOnClickListener(view ->
+                startActivity(new Intent(MainActivity.this, FuelCityActivity.class))
+        );
+
+        fetchFuelPrice();
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            checkAndRequestPermissions();
+        }
+
+
+        iv_setting.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, StartActivity.class));
+        });
+
+        iv_share.setOnClickListener(v -> {
+            ShareApp();
+        });
 
 
 
@@ -264,8 +315,69 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-
         super.onDestroy();
+    }
+
+    void fetchFuelPrice(){
+        new BackgroundTask(MainActivity.this){
+            @Override
+            public void doInBackground() {
+                String path="https://www.mypetrolprice.com/" + MainActivity.this.cityId + "/Fuel-prices-in-Kolkata";
+                Log.d(TAG, "endpoint: "+path);
+                try {
+                    Elements select = Jsoup.connect("https://www.mypetrolprice.com/" + MainActivity.this.cityId + "/Fuel-prices-in-Kolkata").get().select("div.OuterDiv");
+                    int size = select.size();
+                    for (int i = 0; i < size; i++) {
+                        MainActivity.this.FuelList.add(new FuelModel(select.eq(i).select("div.UCFuelName").text(), select.eq(i).select("div.Italic").text(), select.eq(i).select("span.day").text(), select.eq(i).select("span.month").text(), select.eq(i).select("span.year").text(), select.eq(i).select("div.fnt27").text(), select.eq(i).select("div.fnt18").text(), select.eq(i).select("div.UCFuelName").text()));
+                        Log.d(TAG, "doInBackground: "+ FuelList.get(i).getFuelName());
+                    }
+                } catch (IOException unused) {
+                    Log.e(TAG, "doInBackground: "+unused);
+                }
+            }
+
+            @Override
+            public void onPostExecute() {
+                fuelRec.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
+                RecyclerView recyclerView = fuelRec;
+                MainActivity getStartActivity = MainActivity.this;
+                recyclerView.setAdapter(new FuelAdapter(getStartActivity, getStartActivity.FuelList));
+                fuelRec.setVisibility(View.VISIBLE);
+            }
+        }.execute();
+    }
+
+    private boolean checkAndRequestPermissions() {
+        int checkSelfPermission = ContextCompat.checkSelfPermission(this, "android.permission.READ_EXTERNAL_STORAGE");
+        int checkSelfPermission2 = ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE");
+        ArrayList arrayList = new ArrayList();
+        if (checkSelfPermission2 != 0) {
+            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+        }
+        if (checkSelfPermission != 0) {
+            arrayList.add("android.permission.READ_EXTERNAL_STORAGE");
+        }
+        if (arrayList.isEmpty()) {
+            return true;
+        }
+        ActivityCompat.requestPermissions(this, (String[]) arrayList.toArray(new String[arrayList.size()]), 1);
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i, strArr, iArr);
+        if (i != 6 || iArr[0] == 0 || Build.VERSION.SDK_INT < 23 || checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        requestPermissions(new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, 6);
+    }
+    private void ShareApp() {
+        Intent intent = new Intent("android.intent.action.SEND");
+        intent.setType("text/plain");
+        intent.putExtra("android.intent.extra.SUBJECT", getResources().getString(R.string.app_name));
+        intent.putExtra("android.intent.extra.TEXT", "https://play.google.com/store/apps/details?id=" + getPackageName());
+        startActivity(Intent.createChooser(intent, "Share Link"));
     }
 
 

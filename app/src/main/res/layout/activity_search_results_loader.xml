@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#dfdfdf"
+    android:background="@color/md_background"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -28,10 +28,10 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lav_actionBar"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:tint="@color/teal_200"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
@@ -46,7 +46,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="Connecting To Server… \10 Please Wait…"
+                android:text="@string/please_wait"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,33 +13,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="@dimen/_5sdp">
-        <RelativeLayout
-
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:background="@color/md_primary"
             android:layout_height="?attr/actionBarSize">
 
-            <ImageView
-                android:id="@+id/iv_back"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:onClick="onClick"
-                android:padding="5dp"
-                android:src="@drawable/ic_back"
-                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/robotoslab_regular"
-                android:text="RTO Vehicle Information"
+                android:text="@string/app_name"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
-        </RelativeLayout>
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_share_24"
+                app:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_user"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_user"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_setting_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -61,13 +78,14 @@
                 android:id="@+id/cardSearchOwner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardElevation="2dp"
                 app:contentPadding="@dimen/_14sdp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:focusable="true"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,7 +110,8 @@
                         android:layout_marginEnd="16dp"
                         android:text="@string/vehicle_info"
                         android:textColor="@color/md_primary_text"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/robotoslab_medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imageView3"
                         app:layout_constraintStart_toEndOf="@+id/iv_owner_details"
@@ -117,9 +136,7 @@
                 android:id="@+id/cardRcBookDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:contentPadding="@dimen/_14sdp"
@@ -149,7 +166,8 @@
                         android:layout_marginEnd="16dp"
                         android:text="@string/rc_book_details"
                         android:textColor="@color/md_primary_text"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/robotoslab_medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imageView4"
                         app:layout_constraintStart_toEndOf="@+id/iv_rc_details"
@@ -172,9 +190,7 @@
                 android:id="@+id/cardRtoOffice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:contentPadding="@dimen/_14sdp"
@@ -204,7 +220,9 @@
                         android:layout_marginEnd="16dp"
                         android:text="@string/rto_offices"
                         android:textColor="@color/md_primary_text"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/robotoslab_medium"
+
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imageView5"
                         app:layout_constraintStart_toEndOf="@+id/iv_rto_office"
@@ -233,7 +251,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:minHeight="250dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <FrameLayout
                     android:id="@+id/mobadslayout"
@@ -247,14 +265,18 @@
 
             </RelativeLayout>
 
+<!--    Fule Price Layout   -->
+            <include
+                android:visibility="visible"
+                android:id="@+id/fuelInclude"
+                layout="@layout/lay_fuel_content"/>
+
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentPadding="@dimen/_14sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_5sdp">
 
@@ -266,7 +288,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="RTO Exam"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/mukta_medium"
                         android:textColor="@color/md_primary_text"
                         />
                     <View
@@ -425,9 +448,7 @@
                 android:id="@+id/cardCelebVehicle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:contentPadding="@dimen/_14sdp"
@@ -458,7 +479,8 @@
                         android:layout_marginEnd="16dp"
                         android:text="@string/celebrity_vehicle_details"
                         android:textColor="@color/md_primary_text"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/robotoslab_medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imageView6"
                         app:layout_constraintStart_toEndOf="@+id/iv_celebrity_info"

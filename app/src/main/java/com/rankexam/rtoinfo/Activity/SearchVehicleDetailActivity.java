@@ -51,9 +51,9 @@ public class SearchVehicleDetailActivity extends AppCompatActivity {
     }
 
     public void manipulateJsonResponse(JSONObject jSONObject) {
-        Log.i("manipulateJsonResponse",new Gson().toJson(jSONObject).toString());
+//        Log.i("manipulateJsonResponse",new Gson().toJson(jSONObject).toString());
         try {
-            VehiclseDetailRespondModel m_rtoVehiclseDetailRespond = (VehiclseDetailRespondModel) new Gson().fromJson(jSONObject.toString(), VehiclseDetailRespondModel.class);
+            VehiclseDetailRespondModel m_rtoVehiclseDetailRespond = new Gson().fromJson(jSONObject.toString(), VehiclseDetailRespondModel.class);
             this.vehicleDetailsResponse = m_rtoVehiclseDetailRespond;
             if (m_rtoVehiclseDetailRespond.getStatusCode() != 200) {
                 finish();

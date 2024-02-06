@@ -35,8 +35,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     public void InterstitialLoad() {
         AdRequest adRequest = new AdRequest.Builder().build();
-        RequestConfiguration configuration = new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("1ADAD30F02CD84CDE72190C2ABE5EB5E")).build();
-        MobileAds.setRequestConfiguration(configuration);
+
         InterstitialAd.load(getApplicationContext(), getString(R.string.AdMob_Interstitial), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -79,7 +78,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
 
-//        InterstitialLoad();
+        InterstitialLoad();
 
 
 //        AudienceNetworkAds.initialize(this);
@@ -101,12 +100,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         OneSignal.setAppId(getResources().getString(R.string.ONESIGNAL_APP_ID));
         OneSignal.promptForPushNotifications();
 
-//        AdsManager.getInstance().init(SplashScreenActivity.this);
+        AdsManager.getInstance().init(SplashScreenActivity.this);
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 if (isNetworkConnected()) {
-                    startActivity(new Intent(SplashScreenActivity.this.getApplicationContext(), StartActivity.class));
+                    startActivity(new Intent(SplashScreenActivity.this.getApplicationContext(), MainActivity.class));
                     ShowFunUAds();
                     finish();
                 } else {
@@ -114,7 +113,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
 
             }
-        }, 6000);
+        }, 3000);
     }
     private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

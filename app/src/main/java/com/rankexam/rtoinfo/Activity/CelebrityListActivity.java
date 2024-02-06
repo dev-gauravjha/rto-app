@@ -20,6 +20,7 @@ public class CelebrityListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_celebrities_lst);
 
         AdsManager.getInstance().loadBanner(this);
+
         ((ImageView) findViewById(R.id.iv_back)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

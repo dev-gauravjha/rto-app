@@ -133,3 +133,11 @@
 -keepattributes Signature
 # Retain declared checked exceptions for use by a Proxy instance.
 -keepattributes Exceptions
+
+
+# Keep all model classes used by Gson for serialization/deserialization
+-keep class com.rankexam.rtoinfo.Model.** { *; }
+-keepclassmembers class com.rankexam.rtoinfo.Model.** { *; }
+
+# Keep the Gson library
+-keep class com.google.gson.** { *; }

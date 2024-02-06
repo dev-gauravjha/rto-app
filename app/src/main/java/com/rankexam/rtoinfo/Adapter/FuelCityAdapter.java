@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.rankexam.rtoinfo.Activity.MainActivity;
 import com.rankexam.rtoinfo.Activity.StartActivity;
 import com.rankexam.rtoinfo.R;
 import com.rankexam.rtoinfo.Extra.Constant;
@@ -43,15 +44,15 @@ public class FuelCityAdapter extends RecyclerView.Adapter<FuelCityAdapter.ViewHo
         final StateListModel stateListModel = this.list.get(i);
         viewHolder.txt.setText(stateListModel.getStateName());
         if (stateListModel.getId().equalsIgnoreCase("null")) {
-            viewHolder.layout.setBackgroundResource(R.drawable.bg_fuel3_bg);
-            viewHolder.txt.setTextColor(-1);
+            viewHolder.layout.setBackgroundResource(R.drawable.city_bg_1);
+//            viewHolder.txt.setTextColor(-1);
         }
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
        
 
             public void onClick(View view) {
                 if (!stateListModel.getId().equalsIgnoreCase("null")) {
-                    Intent intent = new Intent(FuelCityAdapter.this.context, StartActivity.class);
+                    Intent intent = new Intent(FuelCityAdapter.this.context, MainActivity.class);
                     SharedPreferences.Editor edit = FuelCityAdapter.this.context.getSharedPreferences(Constant.MY_PREFS_NAME, 0).edit();
                     edit.putString("cityName", stateListModel.getStateName());
                     edit.putString("cityId", stateListModel.getId());
